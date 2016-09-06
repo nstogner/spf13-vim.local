@@ -8,7 +8,7 @@ This repo contains customizations to [SPF13's vim distribution](https://github.c
 git clone https://github.com/nstogner/spf13-vim.local ~/.spf13-vim.local && ~/.spf13-vim.local/setup.sh
 ```
 
-Uninstall
+## Uninstall
 
 ```sh
 ~/.spf13-vim.local/uninstall.sh
