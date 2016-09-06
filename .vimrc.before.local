@@ -1,0 +1,18 @@
+" Use space-bar as leader
+noremap <Space> <Nop>
+let g:spf13_leader="\<Space>"
+
+let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'go',]
+
+"let mapleader="\<Space>"
+"
+"" Quick write/quit
+"noremap <Leader>w :w<CR>
+"noremap <Leader>q :q<CR>
+"
+"" Window navigation
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-l> <C-w>l
+
