@@ -3,3 +3,6 @@ noremap <Space> <Nop>
 let g:spf13_leader="\<Space>"
 
 let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'go',]
+
+" Dont change directories on opening a file
+let g:spf13_no_autochdir = 1

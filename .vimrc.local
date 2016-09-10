@@ -4,6 +4,7 @@ color molo
 " Get rid of ident guides.
 let g:indent_guides_enable_on_vim_startup = 0
 
+
 " Disable spelling checks
 set nospell
 
@@ -16,7 +17,8 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>df <Plug>(go-def)
 
 " ctrl-p
-" let g:ctrlp_working_path_mode = ''
+" Dont set the ctrlp root to be the root of the repo
+let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$|node_modules|target|dist|public|vendor',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
