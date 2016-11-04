@@ -4,7 +4,6 @@ color molo
 " Get rid of ident guides.
 let g:indent_guides_enable_on_vim_startup = 0
 
-
 " Disable spelling checks
 set nospell
 
@@ -14,11 +13,31 @@ set autowrite
 " vim-go
 autocmd FileType go nmap <Leader>co <Nop>
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader>df <Plug>(go-def)
+" note: just use 'gd' for go-def
+" autocmd FileType go nmap <Leader>df <Plug>(go-def)
+let g:go_fmt_fail_silently = 1
+let g:go_snippet_case_type = "camelcase"
+let g:go_highlight_types = 1
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#cmd#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 " ctrl-p
 " Dont set the ctrlp root to be the root of the repo
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$|node_modules|target|dist|public|vendor',
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$|node_modules|target|dist|public|vendor|bower_components',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+" Dont use git/etc. to list files b/c it wasnt working properly
+let g:ctrlp_user_command = ''
+
+" Set indent size = 2 for web stuff
+autocmd FileType javascript,html,css setlocal expandtab shiftwidth=2 softtabstop=2
