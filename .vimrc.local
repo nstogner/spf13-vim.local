@@ -1,4 +1,5 @@
 " Set colorscheme
+" call ToggleBG()
 color molo
 
 " Get rid of ident guides.
@@ -37,7 +38,13 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$|node_modules|target|dist|public|vendor|bower_components',
     \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
 " Dont use git/etc. to list files b/c it wasnt working properly
-let g:ctrlp_user_command = ''
+"let g:ctrlp_user_command = ''
+
+if exists("g:ctrlp_user_command")
+  unlet g:ctrlp_user_command
+endif
+set wildignore+=*\\vendor\\**
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 
 " Set indent size = 2 for web stuff
-autocmd FileType javascript,html,css setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType javascript,html,css,yaml setlocal expandtab shiftwidth=2 softtabstop=2
