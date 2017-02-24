@@ -44,7 +44,7 @@ if exists("g:ctrlp_user_command")
   unlet g:ctrlp_user_command
 endif
 set wildignore+=*\\vendor\\**
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor,*/build,*/node_modules,*/bower_components,*/public
 
 " Set indent size = 2 for web stuff
 autocmd FileType javascript,html,css,yaml setlocal expandtab shiftwidth=2 softtabstop=2
